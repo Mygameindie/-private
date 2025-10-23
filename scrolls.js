@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // === PRESET CONFIG ===
     const presets = [
+	{ name: "Vampire fish", action: applyPreset1 },	
      { name: "remove", action: applyPreset4 }, 
     { name: "future", action: applyPreset3 },	
     
@@ -20,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
         ? jsonFiles.map(file => file.replace('.json', ''))
         : [
             "hair", "face", "topunderwear", "shoes", "pants", "skirt",
-            "top", "dress", "jacket", "accessories","maccessories","hat", "plants", "weapon","mask"
+            "top", "dress", "jacket", "accessories","maccessories","hat", "plants", "weapon","mask","backitem"
         ];
 
     function generatePresetButtons() {

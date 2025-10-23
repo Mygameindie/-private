@@ -9,10 +9,23 @@ function hideAllCategories() {
 		"jacket",
 		"accessories",
 		"hat",
-		"weapon", "maccessories", "mask","hair"
+		"weapon", "maccessories", "mask","hair","backitem"
 	]);
 }
-
+// Preset 3: จาก `ที่เก็บถาวร 3.zip`
+function applyPreset1() {
+	hideAllCategories();
+	forceShowItem("top1.png", "top");
+	forceShowItem("pants1.png", "pants");
+	forceShowItem("hair1.png", "hair");
+  forceShowItem("backitem1.png", "backitems");
+  forceShowItem("shoes2.png", "shoes");
+  forceShowItem("skirt2.png", "skirt");
+  forceShowItem("accessories1.png", "accessories");
+  forceShowItem("hat1.png", "hat");
+  forceShowItem("mask1.png", "mask");
+	
+}
 
 
 // Preset 3: จาก `ที่เก็บถาวร 3.zip`
