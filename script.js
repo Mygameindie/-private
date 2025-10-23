@@ -1,5 +1,6 @@
 // Array of JSON file paths
 const jsonFiles = [
+'backitem.json',
     'hair.json',
 	'face.json',
 	'bottomunderwear.json', 
@@ -38,22 +39,23 @@ let currentlySelectedItem = null;
 // Helper function to set z-index for categories
 function getZIndex(categoryName) {
     const zIndexMap = {
-        hair: 1,
-        face: 2,
-        bottomunderwear: 3,
-        topunderwear: 4,
-        shoes: 5,
-        pants: 6,
-        skirt: 16,
-        top: 7,
-        dress: 9,
-        jacket: 10,
-        accessories: 11,
-        hat: 12,
-        plants: 13,
-        weapon: 14,
-		maccessories: 15,
-		mask:16
+		backitem:1,
+        hair: 12,
+        face: 11,
+        bottomunderwear: 30,
+        topunderwear: 40,
+        shoes: 50,
+        pants: 60,
+        skirt: 160,
+        top: 70,
+        dress: 90,
+        jacket: 100,
+        accessories: 110,
+        hat: 120,
+        plants: 130,
+        weapon: 140,
+		maccessories: 150,
+		mask:160
 		
     };
     return zIndexMap[categoryName] || 0;
@@ -610,7 +612,7 @@ window.getZIndex = getZIndex;
   // Attach listeners to hat buttons
   function attach() {
     // Hat1 & Hat2 → cone head sound
-    ['hat1.png', 'hat2.png'].forEach(id => {
+    ['hat2.png'].forEach(id => {
       const btn = document.querySelector(`img.item-button[alt*="${id.replace('.png','')}"]`);
       if (btn && !btn.dataset.hatSfxBound) {
         btn.dataset.hatSfxBound = '1';
@@ -619,7 +621,7 @@ window.getZIndex = getZIndex;
     });
 
     // Hat3 & Hat4 → bucket sound
-    ['hat3.png', 'hat4.png'].forEach(id => {
+    ['hat4.png'].forEach(id => {
       const btn = document.querySelector(`img.item-button[alt*="${id.replace('.png','')}"]`);
       if (btn && !btn.dataset.hatSfxBound) {
         btn.dataset.hatSfxBound = '1';
@@ -724,8 +726,8 @@ window.getZIndex = getZIndex;
     // Normalize match text: try alt, data-name, src
     const alt = (target.getAttribute('alt') || target.dataset.name || target.getAttribute('src') || '').toLowerCase();
     // Adjust keywords if your hats use different identifiers
-    if (alt.includes('hat1') || alt.includes('hat2')) return CONE_SRC;
-    if (alt.includes('hat3') || alt.includes('hat4')) return BUCKET_SRC;
+    if (alt.includes('hat2')) return CONE_SRC;
+    if (alt.includes('hat4')) return BUCKET_SRC;
     return null;
   }
 
