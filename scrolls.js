@@ -5,10 +5,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // === PRESET CONFIG ===
     const presets = [
-	{ name: "Vampire fish", action: applyPreset1 },	
+	
      { name: "remove", action: applyPreset4 }, 
     { name: "future", action: applyPreset3 },	
-    
+    	{ name: "Vampire fish", action: applyPreset1 },
 	
     // จาก ที่เก็บถาวร 3.zip
      // จาก ที่เก็บถาวร 2.zip
