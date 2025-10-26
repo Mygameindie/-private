@@ -20,18 +20,7 @@ const jsonFiles = [
 	
 ];
 
-// Color palette for clothing items
-const colorPalette = [
-    { name: 'Original', value: 'none' },
-    { name: 'Red', value: 'hue-rotate(0deg)' },
-    { name: 'Blue', value: 'hue-rotate(240deg)' },
-    { name: 'Green', value: 'hue-rotate(120deg)' },
-    { name: 'Purple', value: 'hue-rotate(270deg)' },
-    { name: 'Orange', value: 'hue-rotate(30deg)' },
-    { name: 'Pink', value: 'hue-rotate(320deg)' },
-    { name: 'Yellow', value: 'hue-rotate(60deg)' },
-    { name: 'Cyan', value: 'hue-rotate(180deg)' }
-];
+
 
 // Track currently selected item for color changing
 let currentlySelectedItem = null;
@@ -72,130 +61,22 @@ async function loadItemFile(file) {
         return [];
     }
 }
-/* === Color Swatch Fixups (append only) === */
-(() => {
-  // 1) Bridge: some code reads window.currentlySelectedItem but it's declared with `let`.
-  try {
-    if (!('currentlySelectedItem' in window)) {
-      Object.defineProperty(window, 'currentlySelectedItem', {
-        get(){ try { return typeof currentlySelectedItem !== 'undefined' ? currentlySelectedItem : null; } catch(e){ return null; } },
-        set(v){ try { currentlySelectedItem = v; } catch(e) { /* no-op */ } }
-      });
+// Load each JSON file
+async function loadItemFile(file) {
+    try {
+        const response = await fetch(file);
+        if (!response.ok) throw new Error(`Error loading file: ${file}`);
+        return await response.json();
+    } catch (error) {
+        console.error(`Failed to load ${file}:`, error);
+        return [];
     }
-  } catch (e) { /* ignore */ }
-
-  // 2) Idempotent, safe createColorPicker (in case a later stub overwrote the real one)
-  function buildPickerOnce() {
-    if (document.querySelector('.color-picker-container')) return; // already built
-
-    const container = document.createElement('div');
-    container.className = 'color-picker-container';
-    container.style.display = 'none';
-
-    const title = document.createElement('h4');
-    title.textContent = 'Choose Color:';
-    container.appendChild(title);
-
-    const grid = document.createElement('div');
-    grid.className = 'color-grid';
-
-    // Use your existing palette so the swatch-upgrade can convert them to circles
-    (window.colorPalette || []).forEach(c => {
-      const btn = document.createElement('button');
-      btn.className = 'color-button';
-      btn.textContent = c.name;
-      // keep old behavior for fallback (CSS filter)
-      btn.onclick = () => window.applyColorToItem?.(c.value);
-      grid.appendChild(btn);
-    });
-
-    container.appendChild(grid);
-
-    const close = document.createElement('button');
-    close.className = 'close-color-picker';
-    close.textContent = 'Close';
-    close.onclick = () => window.hideColorPicker?.();
-    container.appendChild(close);
-
-    (document.querySelector('.controls') || document.body).appendChild(container);
-  }
-
-  // Replace/restore global createColorPicker to the safe one (append-only override).
-  window.createColorPicker = function() { buildPickerOnce(); };
-
-  // Build immediately if not present (covers the case where a stub ran earlier)
-  buildPickerOnce();
-})();
-
-// Create color picker UI
-function createColorPicker() {
-    const colorPickerContainer = document.createElement('div');
-    colorPickerContainer.classList.add('color-picker-container');
-    colorPickerContainer.style.display = 'none';
-    
-    const colorPickerTitle = document.createElement('h4');
-    colorPickerTitle.textContent = 'Choose Color:';
-    colorPickerContainer.appendChild(colorPickerTitle);
-    
-    const colorGrid = document.createElement('div');
-    colorGrid.classList.add('color-grid');
-    
-    colorPalette.forEach(color => {
-        const colorButton = document.createElement('button');
-        colorButton.classList.add('color-button');
-        colorButton.textContent = color.name;
-        colorButton.onclick = () => applyColorToItem(color.value);
-        colorGrid.appendChild(colorButton);
-    });
-    
-    colorPickerContainer.appendChild(colorGrid);
-    
-    // Close button
-    const closeButton = document.createElement('button');
-    closeButton.textContent = 'Close';
-    closeButton.classList.add('close-color-picker');
-    closeButton.onclick = hideColorPicker;
-    colorPickerContainer.appendChild(closeButton);
-    
-    document.querySelector('.controls').appendChild(colorPickerContainer);
-}
-
-// Show color picker
-function showColorPicker(itemId) {
-    currentlySelectedItem = itemId;
-    const colorPicker = document.querySelector('.color-picker-container');
-    colorPicker.style.display = 'block';
-}
-
-// Hide color picker
-function hideColorPicker() {
-    const colorPicker = document.querySelector('.color-picker-container');
-    colorPicker.style.display = 'none';
-    currentlySelectedItem = null;
-}
-
-// Apply color filter to selected item
-function applyColorToItem(filterValue) {
-    if (!currentlySelectedItem) return;
-    
-    const item = document.getElementById(currentlySelectedItem);
-    if (item) {
-        if (filterValue === 'none') {
-            item.style.filter = '';
-        } else {
-            item.style.filter = filterValue;
-        }
-    }
-    hideColorPicker();
 }
 
 // Load items in batches to reduce load time and improve responsiveness
 async function loadItemsInBatches(batchSize = 3) {
     const baseContainer = document.querySelector('.base-container');
     const controlsContainer = document.querySelector('.controls');
-    
-    // Create color picker first
-    createColorPicker();
     
     for (let i = 0; i < jsonFiles.length; i += batchSize) {
         const batch = jsonFiles.slice(i, i + batchSize);
@@ -225,39 +106,25 @@ async function loadItemsInBatches(batchSize = 3) {
                 baseContainer.appendChild(img);
 
                 // Create container for buttons
-const buttonContainer = document.createElement('div');
-buttonContainer.classList.add('button-container');
+                const buttonContainer = document.createElement('div');
+                buttonContainer.classList.add('button-container');
 
-// Create a wrapper to stack buttons vertically
-const buttonWrap = document.createElement('div');
-buttonWrap.classList.add('button-wrap');
+                // Create a wrapper to stack buttons vertically
+                const buttonWrap = document.createElement('div');
+                buttonWrap.classList.add('button-wrap');
 
-// Main item button
-const button = document.createElement('img');
-const buttonFile = item.src.replace('.png', 'b.png');
-button.src = buttonFile;
-button.alt = item.alt + ' Button';
-button.classList.add('item-button');
-button.onclick = () => toggleVisibility(itemId, categoryName);
-buttonWrap.appendChild(button);
+                // Main item button
+                const button = document.createElement('img');
+                const buttonFile = item.src.replace('.png', 'b.png');
+                button.src = buttonFile;
+                button.alt = item.alt + ' Button';
+                button.classList.add('item-button');
+                button.onclick = () => toggleVisibility(itemId, categoryName);
+                buttonWrap.appendChild(button);
 
-// Color change button
-const colorButton = document.createElement('button');
-colorButton.textContent = '🎨';
-colorButton.classList.add('color-change-button');
-colorButton.onclick = (e) => {
-    e.stopPropagation();
-    const targetItem = document.getElementById(itemId);
-    if (targetItem.style.visibility === 'hidden') {
-        toggleVisibility(itemId, categoryName);
-    }
-    showColorPicker(itemId);
-};
-buttonWrap.appendChild(colorButton);
-
-// Add stacked buttonWrap to container
-buttonContainer.appendChild(buttonWrap);
-categoryContainer.appendChild(buttonContainer);
+                // Add stacked buttonWrap to container
+                buttonContainer.appendChild(buttonWrap);
+                categoryContainer.appendChild(buttonContainer);
             });
 
             controlsContainer.appendChild(categoryContainer);
@@ -266,7 +133,6 @@ categoryContainer.appendChild(buttonContainer);
         await new Promise(resolve => setTimeout(resolve, 0.1));
     }
 }
-
 function toggleVisibility(itemId, categoryName) {
     const nonRemovableCategories = ['bottomunderwear', 'face'];
 
