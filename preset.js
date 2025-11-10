@@ -27,7 +27,14 @@ function applyPreset1() {
 	
 }
 
+function applyPreset2() {
+    hideAllCategories();
+    forceShowItem("dress1.png", "dress");
+    forceShowItem("shoes3.png", "shoes");
 
+    forceShowItem("hat3.png", "hat");
+    forceShowItem("backitem2.png", "backitems");
+}
 // Preset 3: จาก `ที่เก็บถาวร 3.zip`
 function applyPreset3() {
 	hideAllCategories();

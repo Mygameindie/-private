@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // === PRESET CONFIG ===
     const presets = [
-	
+	    { name: "cat", action: applyPreset2 },
      { name: "remove", action: applyPreset4 }, 
     { name: "future", action: applyPreset3 },	
     	{ name: "Vampire fish", action: applyPreset1 },
