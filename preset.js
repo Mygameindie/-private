@@ -48,7 +48,16 @@ function applyPreset4() {
 	hideAllCategories();
 	forceShowItem("hair1.png", "hair");
 }
-
+// Preset 4: จาก `ที่เก็บถาวร 3.zip`
+function applyPreset5() {
+    hideAllCategories();
+    forceShowItem("top3.png", "top");
+    forceShowItem("pants3.png", "pants");
+    forceShowItem("hat6.png", "hat");
+    forceShowItem("weapon10.png", "weapon");
+    forceShowItem("backitem3.png", "backitem");
+	forceShowItem("shoes1.png", "shoes")
+}
 
 
 // Utility: Keep your original forceShowItem()
