@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     	{ name: "Vampire fish", action: applyPreset1 },
 			    { name: "cat", action: applyPreset2 },
 				{ name: "dream", action: applyPreset5 },
+				{ name: "bunny", action: applyPreset6 },
 	
     // จาก ที่เก็บถาวร 3.zip
      // จาก ที่เก็บถาวร 2.zip

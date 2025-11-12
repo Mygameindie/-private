@@ -4,5 +4,11 @@
     "src": "topunderwear1.png",
     "alt": "topunderwear Item 1",
     "visibility": "visible"
+},
+{
+    "id": "topunderwear2",
+    "src": "topunderwear2.png",
+    "alt": "topunderwear Item 2",
+    "visibility": "hidden"
 }
 ]
