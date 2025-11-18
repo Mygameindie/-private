@@ -1,5 +1,6 @@
 // Array of JSON file paths
 const jsonFiles = [
+	'emotion.json',
 'backitem.json',
     'hair.json',
 	'face.json',
@@ -15,7 +16,7 @@ const jsonFiles = [
 	'maccessories.json',
     'hat.json', 
 	'weapon.json',
-	'mask.json'
+	'mask.json',
 	
 	
 ];
@@ -44,7 +45,8 @@ function getZIndex(categoryName) {
         plants: 130,
         weapon: 140,
 		maccessories: 150,
-		mask:160
+		mask:160,
+		emotion: 999
 		
     };
     return zIndexMap[categoryName] || 0;

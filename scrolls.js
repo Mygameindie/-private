@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const categories = (typeof jsonFiles !== 'undefined')
         ? jsonFiles.map(file => file.replace('.json', ''))
         : [
-            "hair", "face", "topunderwear", "shoes", "pants", "skirt",
+            "emotion","hair", "face", "topunderwear", "shoes", "pants", "skirt",
             "top", "dress", "jacket", "accessories","maccessories","hat", "plants", "weapon","mask","backitem"
         ];
 
