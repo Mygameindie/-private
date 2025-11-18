@@ -58,5 +58,11 @@
     "src": "weapon10.png",
     "alt": "weapon Item 10",
     "visibility": "hidden"
+  },
+  {
+    "id": "weapon11",
+    "src": "weapon11.png",
+    "alt": "weapon Item 11",
+    "visibility": "hidden"
   }
 ]
