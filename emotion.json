@@ -41,4 +41,11 @@
     "alt": "emotion Item 7",
     "visibility": "hidden"
   }
+  ,
+  {
+    "id": "emotion8",
+    "src": "emotion8.png",
+    "alt": "emotion Item 8",
+    "visibility": "hidden"
+  }
 ]
