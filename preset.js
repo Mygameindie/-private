@@ -66,6 +66,14 @@ function applyPreset6() {
     forceShowItem("hat8.png", "hat");
     forceShowItem("backitem4.png", "backitem");
 }
+// Preset Teto
+function applyPreset7() {
+    hideAllCategories();
+    forceShowItem("hair3.png", "hair");
+    forceShowItem("top4.png", "top");
+    forceShowItem("pants4.png", "pants");
+    forceShowItem("shoes4.png", "shoes");
+}
 
 // Utility: Keep your original forceShowItem()
 function forceShowItem(itemId, categoryName) {
