@@ -617,15 +617,17 @@ window.getZIndex = getZIndex;
     if (src) playCopy(src);
   });
 })();
-/* === Hammer SFX + Visual (press-and-hold + face6 change + size fix) === */
+/* === Hammer SFX + Visual (always on top) =============================== */
+/* === Hammer SFX + Visual (always on top + perfect alignment) =============================== */
 (function setupHammerAppendOnly(){
-  // 0) Hide old hammer if still visible
+
+  // Hide old hammer if any
   window.addEventListener('load', () => {
-    const oldHammer = document.getElementById('Hammer') || document.getElementById('hammer');
-    if (oldHammer) oldHammer.style.display = 'none';
+    const old = document.getElementById('Hammer') || document.getElementById('hammer');
+    if (old) old.style.display = 'none';
   }, { once:true });
 
-  // 1) Create (or reuse) hammer sound
+  // Hammer sound
   let hammerSfx = document.getElementById('hammerSfx');
   if (!hammerSfx) {
     hammerSfx = document.createElement('audio');
@@ -635,90 +637,70 @@ window.getZIndex = getZIndex;
     document.body.appendChild(hammerSfx);
   }
 
-  // 2) Ensure a 'hammer' visual item exists but stays hidden by default
+  // Create hammer visual
   function ensureHammerVisual() {
-    const base = document.querySelector('.base-container') || document.body;  // Attach inside game area
     let hammerImg = document.getElementById('Hammer');
+
     if (!hammerImg) {
       hammerImg = document.createElement('img');
       hammerImg.id = 'Hammer';
-      hammerImg.src = 'Hammer.png';  // <-- your hammer image file
+      hammerImg.src = 'Hammer.png';
       hammerImg.alt = 'hammer effect';
       hammerImg.className = 'hammer';
+
       hammerImg.style.position = 'absolute';
-      hammerImg.style.left = '0';
-      hammerImg.style.top = '0';
+      hammerImg.style.pointerEvents = 'none';
+      hammerImg.style.zIndex = '999999';
+      hammerImg.style.display = 'none';
 
-      // If getZIndex exists, try to place it above clothes; else fall back.
-      const z = (typeof window.getZIndex === 'function')
-        ? (window.getZIndex('jacket') + 1)
-        : 18;
-      hammerImg.style.zIndex = (isFinite(z) ? z : 18);
-
-      // Size and visibility
-      hammerImg.style.width = 'auto';
-      hammerImg.style.height = 'auto';
-      hammerImg.style.maxWidth = '120%';
-      hammerImg.style.maxHeight = '120%';
-      hammerImg.style.display = 'none'; // hidden initially
-
-      base.appendChild(hammerImg);
+      document.body.appendChild(hammerImg);
     }
     return hammerImg;
   }
 
-  // 3) Attach to hammer button
+  // Anchor to #base-image (the real zombie)
+  function updateHammerPosition(hammerImg) {
+    const baseImage = document.getElementById('base-image');
+
+    if (!baseImage) return;
+
+    const rect = baseImage.getBoundingClientRect();
+
+    // Hammer follows Base.png exactly
+    hammerImg.style.left = rect.left + 'px';
+    hammerImg.style.top = rect.top + 'px';
+    hammerImg.style.width = rect.width + 'px';
+    hammerImg.style.height = rect.height + 'px';
+  }
+
+  // Attach behavior
   function attach() {
     const btn = document.getElementById('toggleHammerBtn');
     if (!btn) return;
-
-    // Label + prevent duplicates
-    if (!btn.dataset.hammerLabeled) {
-      btn.dataset.hammerLabeled = '1';
-      btn.textContent = btn.textContent?.trim() ? btn.textContent : 'Hammer';
-      btn.title = btn.title || 'Hammer';
-      if (!btn.getAttribute('aria-label')) btn.setAttribute('aria-label', 'Hammer');
-    }
     if (btn.dataset.hammerBound === '1') return;
     btn.dataset.hammerBound = '1';
 
     const hammerImg = ensureHammerVisual();
 
-    // === Helpers ===
     const playHammer = () => {
-      try {
-        const inst = hammerSfx.cloneNode(true);
-        inst.volume = 1.0;
-        inst.play().catch(()=>{});
-      } catch(e) {}
+      const inst = hammerSfx.cloneNode(true);
+      inst.volume = 1.0;
+      inst.play().catch(()=>{});
     };
 
-    // ✅ Fixed: use existing face6, do not create new one
     const changeFaceTo6 = () => {
       const faces = document.querySelectorAll('img.face, img[id^="face"]');
       faces.forEach(f => (f.style.visibility = 'hidden'));
-
-      // Look for existing face6 from JSON
-      const f6 =
-        document.getElementById('face6') ||
-        document.querySelector('img[src*="face6.png"]');
-
-      if (f6) {
-        f6.style.visibility = 'visible';
-        f6.dataset.fixedByHammer = 'true';
-      } else {
-        console.warn('⚠️ face6 not found in DOM. Make sure face6.png exists in face.json.');
-      }
+      const f6 = document.getElementById('face6') ||
+                 document.querySelector('img[src*="face6.png"]');
+      if (f6) f6.style.visibility = 'visible';
     };
 
     const showHammer = (e) => {
+      updateHammerPosition(hammerImg);
       hammerImg.style.display = 'block';
-      if (typeof window.getZIndex === 'function') {
-        const z = window.getZIndex('jacket') + 1;
-        if (isFinite(z)) hammerImg.style.zIndex = z;
-      }
       playHammer();
-      changeFaceTo6(); // 💥 change face when pressing hammer
+      changeFaceTo6();
       if (e && e.preventDefault) e.preventDefault();
     };
 
@@ -726,23 +708,24 @@ window.getZIndex = getZIndex;
       hammerImg.style.display = 'none';
     };
 
-    // Mouse + touch press-hold
+    // Press & hold
     btn.addEventListener('mousedown', showHammer);
     btn.addEventListener('touchstart', showHammer, { passive: false });
+
     window.addEventListener('mouseup', hideHammer);
     window.addEventListener('mouseleave', hideHammer);
     window.addEventListener('touchend', hideHammer);
     window.addEventListener('touchcancel', hideHammer);
+
+    // Follow Base.png on resize/scroll
+    window.addEventListener('resize', () => updateHammerPosition(hammerImg));
+    window.addEventListener('scroll', () => updateHammerPosition(hammerImg));
   }
 
-  // 4) Initialize after page load
-  if (document.readyState === 'complete') {
-    attach();
-  } else {
-    window.addEventListener('load', attach);
-  }
+  if (document.readyState === 'complete') attach();
+  else window.addEventListener('load', attach);
+
 })();
-
 
 /* === Base2 press-and-hold (append-only, robust) ========================= */
 (function attachBase2PressHold(){
