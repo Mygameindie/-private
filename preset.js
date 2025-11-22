@@ -9,7 +9,7 @@ function hideAllCategories() {
 		"jacket",
 		"accessories",
 		"hat",
-		"weapon", "maccessories", "mask","backitem"
+		"weapon", "maccessories", "mask","backitem","Waist"
 	]);
 }
 // Preset 3: จาก `ที่เก็บถาวร 3.zip`
@@ -71,7 +71,7 @@ function applyPreset7() {
     hideAllCategories();
     forceShowItem("hair3.png", "hair");
     forceShowItem("top4.png", "top");
-    forceShowItem("pants4.png", "pants");
+    forceShowItem("skirt1.png", "skirt");
     forceShowItem("shoes4.png", "shoes");
 }
 

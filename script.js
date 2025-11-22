@@ -17,6 +17,7 @@ const jsonFiles = [
     'hat.json', 
 	'weapon.json',
 	'mask.json',
+	'Waist.json',
 	
 	
 ];
@@ -36,7 +37,8 @@ function getZIndex(categoryName) {
         topunderwear: 40,
         shoes: 50,
         pants: 60,
-        skirt: 160,
+		skirt:61,
+        waist: 160,
         top: 70,
         dress: 90,
         jacket: 100,
@@ -46,6 +48,7 @@ function getZIndex(categoryName) {
         weapon: 140,
 		maccessories: 150,
 		mask:160,
+		Waist:161,
 		emotion: 999
 		
     };

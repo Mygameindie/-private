@@ -4,11 +4,6 @@
     "src": "skirt1.png",
     "alt": "skirt Item 1",
     "visibility": "hidden"
-  },
-  {
-    "id": "skirt2",
-    "src": "skirt2.png",
-    "alt": "skirt Item 2",
-    "visibility": "hidden"
-  }
+}
+
 ]
