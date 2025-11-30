@@ -65,4 +65,11 @@
     "alt": "weapon Item 11",
     "visibility": "hidden"
   }
+  ,
+  {
+    "id": "weapon12",
+    "src": "weapon12.png",
+    "alt": "weapon Item 12",
+    "visibility": "hidden"
+  }
 ]
