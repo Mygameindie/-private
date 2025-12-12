@@ -460,7 +460,7 @@ body {
 /* Base1 always visible by default */
 #base-image {
   display: block;
-  z-index: 1 !important;
+  z-index: 2 !important;
 }
 
 /* Base2 / 3 / 4 are ALWAYS hidden unless JS shows them */
