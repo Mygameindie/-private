@@ -432,6 +432,10 @@ body {
     left: 63%;
 }
 
+.button-2 {
+    top: 76%; /* Adjusted using percentage */
+    left: 63%;
+}
 
 /* Responsive Scaling */
 @media (max-width: 600px) {
@@ -448,4 +452,29 @@ body {
 
 .category {
   display: none !important;
+}
+/* ===== BASE LAYERING ===== */
+
+/* ===== BASE VISIBILITY SAFETY ===== */
+
+/* Base1 always visible by default */
+#base-image {
+  display: block;
+  z-index: 1 !important;
+}
+
+/* Base2 / 3 / 4 are ALWAYS hidden unless JS shows them */
+#base2-image,
+#base3-image,
+#base4-image {
+  display: none;              /* 🔑 IMPORTANT */
+  z-index: 12 !important;
+}
+
+/* Ensure base stacking */
+.base-container img[id^="base"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;       /* avoids ghost touches */
 }

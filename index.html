@@ -1,158 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-	<title>ซอมบี้อ้วนจัด</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>ซอมบี้อ้วนจัด</title>
 
-	<!-- Styles -->
-	<link rel="stylesheet" href="style.css" />
-	<link rel="stylesheet" href="three_scroll_bar_style.css" />
-	<link rel="stylesheet" href="scroll.css" />
-
-	<style>
-		/* ===== Base + Background ===== */
-		body {
-			margin: 0;
-			overflow: auto;
-		}
-
-		#base-bg {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background: url('background1.png') center/cover no-repeat;
-			z-index: 0;
-			pointer-events: none;
-			transition: background-image 0.5s ease-in-out;
-		}
-
-		.base-container img {
-			position: absolute;
-			top: 0;
-			left: 0;
-		}
-
-		#base-image {
-			z-index: 10;
-		}
-
-		#base2-image {
-			z-index: 12;
-			display: none;
-		}
-
-		/* ===== Overlay Buttons ===== */
-		button {
-			cursor: pointer;
-			font-family: inherit;
-		}
-
-		#toggleButterBtn,
-		#toggleFrozenBtn,
-		#toggleHammerBtn {
-			position: absolute;
-			top: 10px;
-			z-index: 2000;
-		}
-
-		#toggleFrozenBtn {
-			left: 130px;
-		}
-
-		#toggleHammerBtn {
-			left: 200px;
-		}
-
-		#toggleButterBtn {
-			left: 10px;
-		}
-	</style>
+  <!-- Existing CSS ONLY -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="three_scroll_bar_style.css" />
+  <link rel="stylesheet" href="scroll.css" />
 </head>
 
 <body>
 
-	<!-- === Main Menu === -->
-	<div class="main-menu">
-		<img src="Mainmenu.png" alt="Main Menu Image" />
-		<button onclick="enterGame()">Play</button>
-	</div>
+  <!-- ===== MAIN MENU ===== -->
+  <div class="main-menu">
+    <img src="Mainmenu.png" alt="Main Menu" />
+    <button onclick="enterGame()">Play</button>
+  </div>
 
-	<!-- === Game Container === -->
-	<div class="game-container">
-		<div class="base-container">
-			<button class="small-button button-1" title="Swap Base" onclick="changeToBase2()"></button>
-			<img id="base-image" src="Base.png" />
-			<img id="base2-image" src="Base2.png" />
-			<img id="background-image" src="Background.png" alt="Background Image" />
+  <!-- ===== GAME ===== -->
+  <div class="game-container">
 
-			<img id="butter1" src="butter1.png" style="display:none; z-index:1000;" />
-			
-			<img id="frozen" src="frozen.png" style="display:none; z-index:1010;" />
-			
-			<img id="hammer" src="Hammer.png" style="display:none; z-index:1020;" />
+    <div class="base-container">
 
-			<button id="toggleButterBtn">Add Butter</button>
-			<button id="toggleFrozenBtn">Frozen</button>
-			<button id="toggleHammerBtn">Hammer</button>
-		</div>
+      <!-- Invisible press buttons (CSS handles size & position) -->
+      <button class="small-button button-1" title="Base2"></button>
+      <button class="small-button button-2" title="Base3 / Base4"></button>
 
-		<!-- === Controls === -->
-		<div class="controls">
-			<div class="combined-scroll-bar" id="presetScrollBar"></div>
-			<div class="combined-scroll-bar" id="categoryScrollBar"></div>
-			<div class="scrollable-buttons"></div>
-		</div>
+      <!-- Base layers -->
+      <img id="base-image" src="Base.png" />
+      <img id="base2-image" src="Base2.png" />
+      <img id="base3-image" src="Base3.png" />
+      <img id="base4-image" src="Base4.png" />
 
-		<!-- === Music Controls === -->
-		<div class="music-button-wrapper">
-			<button id="musicToggleButton" class="music-toggle-button">🔊 Music On</button>
-		</div>
-		<div class="music-select-wrapper">
-			<label for="musicSelector">🎵 Choose Music:</label>
-			<select id="musicSelector" class="music-selector">
-				<option value="my-music.mp3">Track 1</option>
-				<option value="your-music.mp3">Track 2</option>
-				<option value="my-music2.mp3">Track 3</option>
-				<option value="my-music3.mp3">Track 4 (Zombie on your lawn)</option>
-			</select>
-		</div>
-		<audio id="backgroundMusic" loop>
-			<source src="my-music.mp3" type="audio/mp3" />
-			Your browser does not support the audio element.
-		</audio>
-	</div>
+      <!-- Effects -->
+      <img id="butter1" src="butter1.png" style="display:none; z-index:1000;" />
+      <img id="frozen" src="frozen.png" style="display:none; z-index:1010;" />
+      <img id="hammer" src="Hammer.png" style="display:none; z-index:1020;" />
 
-	<script src="main.js"></script>
-<script src="butter.js"></script>
-<script src="frozen.js"></script>
-<script src="hatsfx.js"></script>
-<script src="plantsfx.js"></script>
-<script src="hammer.js"></script>
-<script src="base2.js"></script>
+      <!-- Effect buttons -->
+      <button id="toggleButterBtn">Add Butter</button>
+      <button id="toggleFrozenBtn">Frozen</button>
+      <button id="toggleHammerBtn">Hammer</button>
 
-<script src="preset.js"></script>
-<script src="scrolls.js"></script>
+    </div>
 
-	<!-- === Frozen Sound Effect === -->
-	<script>
-		const frozenSfx = document.createElement('audio');
-		frozenSfx.src = 'frozen.mp3';
-		frozenSfx.preload = 'auto';
-		document.body.appendChild(frozenSfx);
+    <!-- ===== CONTROLS ===== -->
+    <div class="controls">
+      <div class="combined-scroll-bar" id="presetScrollBar"></div>
+      <div class="combined-scroll-bar" id="categoryScrollBar"></div>
+      <div class="scrollable-buttons"></div>
+    </div>
 
-		document.getElementById('toggleFrozenBtn').addEventListener('click', () => {
-			const img = document.getElementById('frozen');
-			img.style.display = (img.style.display === 'none') ? 'block' : 'none';
-			frozenSfx.cloneNode(true).play().catch(() => {});
-		});
-	</script>
+    <!-- ===== MUSIC ===== -->
+    <div class="music-button-wrapper">
+      <button id="musicToggleButton" class="music-toggle-button">🔊 Music On</button>
+    </div>
 
+    <div class="music-select-wrapper">
+      <label for="musicSelector">🎵 Choose Music:</label>
+      <select id="musicSelector" class="music-selector">
+        <option value="my-music.mp3">Track 1</option>
+        <option value="your-music.mp3">Track 2</option>
+        <option value="my-music2.mp3">Track 3</option>
+        <option value="my-music3.mp3">Track 4</option>
+      </select>
+    </div>
 
+    <audio id="backgroundMusic" loop>
+      <source src="my-music.mp3" type="audio/mp3" />
+    </audio>
+
+  </div>
+
+  <!-- ===== JS FILES (SEPARATE, AS YOU WANT) ===== -->
+  <script src="main.js"></script>
+  <script src="butter.js"></script>
+  <script src="frozen.js"></script>
+  <script src="hatsfx.js"></script>
+  <script src="plantsfx.js"></script>
+  <script src="hammer.js"></script>
+
+  <!-- base logic -->
+  <script src="base2.js"></script>
+  <script src="base3base4.js"></script>
+
+  <!-- UI -->
+  <script src="preset.js"></script>
+  <script src="scrolls.js"></script>
 
 </body>
-
 </html>
