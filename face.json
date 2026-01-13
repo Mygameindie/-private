@@ -1,0 +1,71 @@
+[
+  {
+    "id": "face1",
+    "src": "face1.png",
+    "alt": "face Item 1",
+    "visibility": "visible"
+  },
+  {
+    "id": "face2",
+    "src": "face2.png",
+    "alt": "face Item 2",
+    "visibility": "hidden"
+  },
+  {
+    "id": "face3",
+    "src": "face3.png",
+    "alt": "face Item 3",
+    "visibility": "hidden"
+  },
+  {
+    "id": "face4",
+    "src": "face4.png",
+    "alt": "face Item 4",
+    "visibility": "hidden"
+  },
+  {
+    "id": "face5",
+    "src": "face5.png",
+    "alt": "face Item 5",
+    "visibility": "hidden"
+  },
+  {
+    "id": "face6",
+    "src": "face6.png",
+    "alt": "face Item 6",
+    "visibility": "hidden"
+  },
+  {
+    "id": "face7",
+    "src": "face7.png",
+    "alt": "face Item 7",
+    "visibility": "hidden"
+  },
+  {
+    "id": "face8",
+    "src": "face8.png",
+    "alt": "face Item 8",
+    "visibility": "hidden"
+  },
+  {
+    "id": "face9",
+    "src": "face9.png",
+    "alt": "face Item 9",
+    "visibility": "hidden"
+  }
+  ,
+  {
+    "id": "face10",
+    "src": "face10.png",
+    "alt": "face Item 10",
+    "visibility": "hidden"
+  }
+  ,
+  {
+    "id": "face11",
+    "src": "face11.png",
+    "alt": "face Item 11",
+    "visibility": "hidden"
+  }
+  
+]
