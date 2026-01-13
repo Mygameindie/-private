@@ -1,0 +1,14 @@
+[
+  {
+    "id": "boxers1",
+    "src": "boxers1.png",
+    "alt": "boxers Item 1",
+    "visibility": "hidden"
+  },
+  {
+    "id": "boxers2",
+    "src": "boxers2.png",
+    "alt": "boxers Item 2",
+    "visibility": "hidden"
+  }
+]

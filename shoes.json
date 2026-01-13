@@ -1,0 +1,49 @@
+[{
+		"id": "shoes1",
+		"src": "shoes1.png",
+		"alt": "shoes Item 1",
+		"visibility": "hidden"
+	},
+	{
+		"id": "shoes2",
+		"src": "shoes2.png",
+		"alt": "shoes Item 2",
+		"visibility": "hidden"
+	},
+	{
+		"id": "shoes3",
+		"src": "shoes3.png",
+		"alt": "shoes Item 3",
+		"visibility": "hidden"
+	},
+	{
+		"id": "shoes4",
+		"src": "shoes4.png",
+		"alt": "shoes Item 4",
+		"visibility": "hidden"
+	},
+	{
+		"id": "shoes5",
+		"src": "shoes5.png",
+		"alt": "shoes Item 5",
+		"visibility": "hidden"
+	},
+	{
+		"id": "shoes6",
+		"src": "shoes6.png",
+		"alt": "shoes Item 6",
+		"visibility": "hidden"
+	},
+	{
+		"id": "shoes7",
+		"src": "shoes7.png",
+		"alt": "shoes Item 7",
+		"visibility": "hidden"
+	},
+	{
+		"id": "shoes8",
+		"src": "shoes8.png",
+		"alt": "shoes Item 8",
+		"visibility": "hidden"
+	}
+]

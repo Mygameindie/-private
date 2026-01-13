@@ -1,0 +1,38 @@
+[
+  {
+    "id": "hair1",
+    "src": "hair1.png",
+    "alt": "hair Item 1",
+    "visibility": "visible"
+  },
+  {
+    "id": "hair2",
+    "src": "hair2.png",
+    "alt": "hair Item 2",
+    "visibility": "hidden"
+  },
+  {
+    "id": "hair3",
+    "src": "hair3.png",
+    "alt": "hair Item 3",
+    "visibility": "hidden"
+  },
+  {
+    "id": "hair4",
+    "src": "hair4.png",
+    "alt": "hair Item 4",
+    "visibility": "hidden"
+  },
+  {
+    "id": "hair5",
+    "src": "hair5.png",
+    "alt": "hair Item 5",
+    "visibility": "hidden"
+  },
+  {
+    "id": "hair6",
+    "src": "hair6.png",
+    "alt": "hair Item 6",
+    "visibility": "hidden"
+  }
+]

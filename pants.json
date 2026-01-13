@@ -1,0 +1,38 @@
+[
+  {
+    "id": "pants1",
+    "src": "pants1.png",
+    "alt": "pants Item 1",
+    "visibility": "hidden"
+  },
+  {
+    "id": "pants2",
+    "src": "pants2.png",
+    "alt": "pants Item 2",
+    "visibility": "hidden"
+  },
+  {
+    "id": "pants3",
+    "src": "pants3.png",
+    "alt": "pants Item 3",
+    "visibility": "hidden"
+  },
+  {
+    "id": "pants4",
+    "src": "pants4.png",
+    "alt": "pants Item 4",
+    "visibility": "hidden"
+  },
+  {
+    "id": "pants5",
+    "src": "pants5.png",
+    "alt": "pants Item 5",
+    "visibility": "hidden"
+  },
+  {
+    "id": "pants6",
+    "src": "pants6.png",
+    "alt": "pants Item 6",
+    "visibility": "hidden"
+  }
+]
