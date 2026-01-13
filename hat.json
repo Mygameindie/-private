@@ -1,0 +1,70 @@
+[
+  {
+    "id": "hat1",
+    "src": "hat1.png",
+    "alt": "hat Item 1",
+    "visibility": "hidden"
+  },
+  {
+    "id": "hat2",
+    "src": "hat2.png",
+    "alt": "hat Item 2",
+    "visibility": "hidden"
+  },
+  {
+    "id": "hat3",
+    "src": "hat3.png",
+    "alt": "hat Item 3",
+    "visibility": "hidden"
+  },
+  {
+    "id": "hat4",
+    "src": "hat4.png",
+    "alt": "hat Item 4",
+    "visibility": "hidden"
+  },
+  {
+    "id": "hat5",
+    "src": "hat5.png",
+    "alt": "hat Item 5",
+    "visibility": "hidden"
+  }
+,
+  {
+    "id": "hat6",
+    "src": "hat6.png",
+    "alt": "hat Item 6",
+    "visibility": "hidden"
+  }
+  ,
+  {
+    "id": "hat7",
+    "src": "hat7.png",
+    "alt": "hat Item 7",
+    "visibility": "hidden"
+  },
+  {
+    "id": "hat8",
+    "src": "hat8.png",
+    "alt": "hat Item 8",
+    "visibility": "hidden"
+  },
+  {
+    "id": "hat9",
+    "src": "hat9.png",
+    "alt": "hat Item 9",
+    "visibility": "hidden"
+  },
+  {
+    "id": "hat10",
+    "src": "hat10.png",
+    "alt": "hat Item 10",
+    "visibility": "hidden"
+  },
+  {
+    "id": "hat11",
+    "src": "hat11.png",
+    "alt": "hat Item 11",
+    "visibility": "hidden"
+  }
+]

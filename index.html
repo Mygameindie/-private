@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>ซอมบี้อ้วนจัด</title>
+
+  <!-- Existing CSS ONLY -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="three_scroll_bar_style.css" />
+  <link rel="stylesheet" href="scroll.css" />
+</head>
+
+<body>
+
+  <!-- ===== MAIN MENU ===== -->
+  <div class="main-menu">
+    <img src="Mainmenu.png" alt="Main Menu" />
+    <button onclick="enterGame()">Play</button>
+  </div>
+
+  <!-- ===== GAME ===== -->
+  <div class="game-container">
+
+    <div class="base-container">
+
+      <!-- Invisible press buttons (CSS handles size & position) -->
+      <button class="small-button button-1" title="Base2"></button>
+      <button class="small-button button-2" title="Base3 / Base4"></button>
+
+      <!-- Base layers -->
+      <img id="base-image" src="Base.png" />
+      <img id="base2-image" src="Base2.png" />
+      <img id="base3-image" src="Base3.png" />
+      <img id="base4-image" src="Base4.png" />
+
+      <!-- Effects -->
+      <img id="butter1" src="butter1.png" style="display:none; z-index:1000;" />
+      <img id="frozen" src="frozen.png" style="display:none; z-index:1010;" />
+      <img id="hammer" src="Hammer.png" style="display:none; z-index:1020;" />
+
+      <!-- Effect buttons -->
+      <button id="toggleButterBtn">Add Butter</button>
+      <button id="toggleFrozenBtn">Frozen</button>
+      <button id="toggleHammerBtn">Hammer</button>
+
+    </div>
+
+    <!-- ===== CONTROLS ===== -->
+    <div class="controls">
+      <div class="combined-scroll-bar" id="presetScrollBar"></div>
+      <div class="combined-scroll-bar" id="categoryScrollBar"></div>
+      <div class="scrollable-buttons"></div>
+    </div>
+
+    <!-- ===== MUSIC ===== -->
+<div class="music-button-wrapper">
+  <button id="musicToggleButton" class="music-toggle-button">🔊 Music On</button>
+</div>
+
+<div class="music-select-wrapper">
+  <label for="musicSelector">🎵 Choose Music:</label>
+  <select id="musicSelector" class="music-selector">
+    <option value="my-music.mp3">Track 1</option>
+    <option value="your-music.mp3">Track 2</option>
+    <option value="my-music2.mp3">Track 3</option>
+    <option value="my-music3.mp3">Track 4</option>
+  </select>
+</div>
+
+<audio id="backgroundMusic" loop>
+  <source src="my-music.mp3" type="audio/mp3" />
+</audio>
+
+<!-- Upload / Playlist UI (KEEP ONLY THIS ONE SET) -->
+<div class="music-upload">
+  <input id="userMusicFiles" type="file" multiple
+         accept="audio/*,video/*,.mp3,.wav,.m4a,.aac,.ogg,.flac,.mp4,.mov,.webm" />
+  <button id="clearUserPlaylistBtn" type="button">🧹 Clear</button>
+  <select id="userMusicPlaylist" size="6" style="width: 220px;"></select>
+</div>
+
+<!-- Universal Player -->
+<video id="userMusicPlayer" preload="metadata" playsinline style="display:none;"></video>
+
+<script src="core.js"></script>
+<script src="zindex.js"></script>
+<script src="visibility.js"></script>
+<script src="data_loader.js"></script>
+<script src="layout.js"></script>
+<script src="music.js"></script>
+<script src="butter.js"></script>
+<script src="frozen.js"></script>
+<script src="base_buttons.js"></script>
+
+<script src="sfx_butter.js"></script>
+<script src="sfx_frozen.js"></script>
+<script src="sfx_plants.js"></script>
+<script src="sfx_hat.js"></script>
+<script src="hammer.js"></script>
+<script src="base2_hold.js"></script>
+<script src="base3_hold.js"></script>
+
+<script src="main.js"></script>
+
+  <!-- UI -->
+  <script src="preset.js"></script>
+  <script src="scrolls.js"></script>
+
+</body>
+</html>
