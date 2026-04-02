@@ -1,0 +1,51 @@
+[
+  {
+    "id": "emotion1",
+    "src": "emotion1.png",
+    "alt": "emotion Item 1",
+    "visibility": "hidden"
+  },
+  {
+    "id": "emotion2",
+    "src": "emotion2.png",
+    "alt": "emotion Item 2",
+    "visibility": "hidden"
+  },
+  {
+    "id": "emotion3",
+    "src": "emotion3.png",
+    "alt": "emotion Item 3",
+    "visibility": "hidden"
+  },
+  {
+    "id": "emotion4",
+    "src": "emotion4.png",
+    "alt": "emotion Item 4",
+    "visibility": "hidden"
+  },
+  {
+    "id": "emotion5",
+    "src": "emotion5.png",
+    "alt": "emotion Item 5",
+    "visibility": "hidden"
+  },
+  {
+    "id": "emotion6",
+    "src": "emotion6.png",
+    "alt": "emotion Item 6",
+    "visibility": "hidden"
+  },
+  {
+    "id": "emotion7",
+    "src": "emotion7.png",
+    "alt": "emotion Item 7",
+    "visibility": "hidden"
+  }
+  ,
+  {
+    "id": "emotion8",
+    "src": "emotion8.png",
+    "alt": "emotion Item 8",
+    "visibility": "hidden"
+  }
+]

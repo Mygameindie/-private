@@ -1,0 +1,5 @@
+[
+    { "id": "toy1", "src": "Toy1.png", "alt": "Weapon 1" },
+	{ "id": "toy2", "src": "Toy2.png", "alt": "Weapon 2" },
+    
+]

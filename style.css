@@ -1,0 +1,629 @@
+/* General Reset */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    margin: 0;
+    background-image: url('background.jpg');
+    background-size: 1180px 500px;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-attachment: fixed;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+/* Main menu and game container */
+.game-container, .main-menu {
+    text-align: center;
+    width: 100%;
+}
+
+.main-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.main-menu img {
+    width: 500px;
+    height: auto;
+    margin-top: -156px;
+}
+
+.main-menu button {
+    margin-top: 100px;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #6200ea;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    width: 200px;
+    text-align: center;
+    transition: background 0.3s ease-in-out;
+}
+
+.main-menu button:hover {
+    background-color: #3700b3;
+}
+
+.game-container {
+    display: none;
+}
+
+/* Base container */
+.base-container {
+    position: relative;
+    width: 500px;
+    height: 400px;
+    margin: 10px auto 0 auto;
+}
+
+/* Base image and layering */
+.base-container img {
+    width: 500px;
+    height: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    pointer-events: none;
+}
+
+/* Controls section */
+.controls {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+    transition: flex-wrap 0.3s ease-in-out;
+}
+
+/* Category styling */
+.category {
+    margin: 100px;
+}
+
+/* Category group styling */
+.category-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.category-group h3 {
+    font-size: 18px;
+    margin: 5px 0;
+    color: #333;
+}
+
+/* Z-index layering */
+.Base-image { z-index: 100; }
+.bottomunderwear { z-index: 200; }
+.topunderwear { z-index: 300; }
+.boxers { z-index: 400; }
+.sweatshirt { z-index: 500; }
+.shoes { z-index: 700; }
+.pants { z-index: 800; }
+.skirt { z-index: 900; }
+.top { z-index: 1000; }
+.dress { z-index: 1100; }
+.jacket { z-index: 1200; }
+.accessories { z-index: 1300; }
+.hat { z-index: 1400; }
+
+/* Controls button styling */
+.controls img {
+    cursor: pointer;
+    width: 50px;
+    height: auto;
+    margin: 5px;
+    border: 2px solid transparent;
+    transition: border-color 0.3s;
+}
+
+.controls img:hover {
+    border-color: #6200ea;
+}
+
+.base-container {
+    transition: all 0.3s ease-in-out;
+}
+
+.preset-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    margin-top: 20px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.preset-button {
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 120px;
+    text-align: center;
+    flex-shrink: 0;
+    transition: background 0.3s ease-in-out;
+}
+
+.preset-button:hover {
+    background-color: #388E3C;
+}
+
+/* Responsive Background Fix for Smaller Screens */
+@media (max-width: 600px) {
+    body {
+        background-size: 600px 500px;
+        width: 100vw;
+    }
+
+    .base-container {
+        width: 90%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .base-container img {
+        width: 100%;
+    }
+
+    .controls {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .controls img {
+        width: 40px;
+    }
+
+    .main-menu img {
+        width: 80%;
+    }
+
+    .main-menu button {
+        width: 90%;
+        font-size: 16px;
+    }
+}
+
+/* Ensure base container scales with screen */
+.base-container {
+    position: relative;
+    width: 50vw; /* Adjust width dynamically */
+    max-width: 500px; /* Limit max width */
+    height: auto;
+    aspect-ratio: 5 / 4; /* Maintain aspect ratio */
+    margin: 10px auto;
+}
+
+/* Ensure images inside the base-container scale properly */
+.base-container img {
+    width: 100%;
+    height: auto;
+}
+
+
+/* Responsive Scaling */
+@media (max-width: 600px) {
+    .base-container {
+        width: 90vw; /* Expand width on smaller screens */
+        max-width: 400px;
+    }
+
+    .small-button {
+        width: 4%;
+        height: 4%;
+    }
+}
+/* Color Picker Styles */
+.color-picker-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    max-width: 300px;
+}
+
+.color-picker-container h4 {
+    margin-top: 0;
+    text-align: center;
+    color: #333;
+}
+
+.color-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.color-button {
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    background: #f9f9f9;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 12px;
+}
+
+.color-button:hover {
+    background: #e0e0e0;
+    border-color: #333;
+    transform: scale(1.05);
+}
+
+.color-change-button {
+    background: #ff6b6b;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 5px;
+    transition: all 0.2s ease;
+}
+
+.color-change-button:hover {
+    background: #ff5252;
+    transform: scale(1.1);
+}
+
+.button-container {
+    display: flex;
+    align-items: cente;
+    margin-bottom: 5px;
+}
+
+.close-color-picker {
+    width: 100%;
+    padding: 10px;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.close-color-picker:hover {
+    background: #555;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+    .color-picker-container {
+        max-width: 90%;
+        padding: 15px;
+    }
+    
+    .color-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .color-change-button {
+        width: 25px;
+        height: 25px;
+        font-size: 14px;
+    }
+}
+.category {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: row;  /* Make buttons side by side */
+    align-items: center;
+    gap: 4px;
+}
+.button-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+/* Music Button Styling */
+.music-button-wrapper {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.music-toggle-button {
+  padding: 8px 16px;
+  font-size: 16px;
+  background-color: #6200ea;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.music-toggle-button:hover {
+  background-color: #3700b3;
+}
+/* Music Button Styling */
+.music-button-wrapper {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.music-toggle-button {
+  padding: 8px 16px;
+  font-size: 16px;
+  background-color: #6200ea;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.music-toggle-button:hover {
+  background-color: #3700b3;
+}
+
+/* Music Selector Dropdown */
+.music-select-wrapper {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.music-selector {
+  padding: 6px 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-left: 5px;
+}
+/* Ensure buttons scale with the base container */
+.small-button {
+    position: absolute;
+    width: 8%; /* Adjusted size dynamically */
+    height: 8%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    opacity: 1;
+    transform: translate(-50%, -50%); /* Centering */
+}
+
+/* Button Positions (Relative to Base Container) */
+.button-1 {
+    top: 47%; /* Adjusted using percentage */
+    left: 63%;
+}
+
+.button-2 {
+    top: 76%; /* Adjusted using percentage */
+    left: 63%;
+}
+
+/* Responsive Scaling */
+@media (max-width: 600px) {
+    .base-container {
+        width: 90vw; /* Expand width on smaller screens */
+        max-width: 400px;
+    }
+
+    .small-button {
+        width: 4%;
+        height: 4%;
+    }
+}
+
+.category {
+  display: none !important;
+}
+/* ===== TOY SYSTEM ===== */
+
+/* Override base-container img defaults for toy items */
+.toy-item {
+  width: 80px !important;
+  height: auto !important;
+  position: absolute !important;
+  pointer-events: auto !important;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: filter 0.15s, transform 0.15s;
+  z-index: 1;
+  left: 0;
+  top: 0;
+}
+
+.toy-item.toy-dragging {
+  cursor: grabbing;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.45));
+  transform: scale(1.12) rotate(3deg);
+}
+
+@keyframes toyBounce {
+  0%   { transform: scale(1) rotate(0deg); }
+  30%  { transform: scale(1.35) rotate(12deg); }
+  60%  { transform: scale(0.88) rotate(-6deg); }
+  80%  { transform: scale(1.08) rotate(3deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+.toy-item.toy-touched {
+  animation: toyBounce 0.4s ease forwards;
+}
+
+/* Toy picker panel */
+.toy-panel {
+  position: fixed;
+  background: rgba(255, 255, 255, 0.97);
+  border: 2px solid #7c3aed;
+  border-radius: 12px;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  z-index: 99999;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+  max-width: 300px;
+}
+
+.toy-spawn-btn {
+  background: #ede9fe;
+  border: 2px solid #7c3aed;
+  border-radius: 8px;
+  padding: 6px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s, border-color 0.2s;
+}
+
+.toy-spawn-btn:hover {
+  background: #c4b5fd;
+  border-color: #5b21b6;
+  transform: scale(1.08);
+}
+
+.toy-spawn-btn img {
+  width: 52px !important;
+  height: 52px !important;
+  object-fit: contain;
+  display: block;
+  pointer-events: none;
+}
+
+/* Toys toggle button */
+.toy-toggle-btn {
+  padding: 6px 14px;
+  font-size: 14px;
+  background: #7c3aed;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  margin-left: 6px;
+}
+
+.toy-toggle-btn:hover {
+  background: #5b21b6;
+}
+
+.toy-toggle-btn.active {
+  background: #4c1d95;
+  transform: scale(0.97);
+}
+
+/* ===== EFFECT ANIMATIONS ===== */
+
+/* Butter: slide in from top with a bounce */
+@keyframes butterSlide {
+  0%   { opacity: 0; transform: translateY(-30px) scaleY(0.75); }
+  55%  { opacity: 1; transform: translateY(6px) scaleY(1.04); }
+  80%  { transform: translateY(-3px) scaleY(0.98); }
+  100% { opacity: 1; transform: translateY(0) scaleY(1); }
+}
+
+/* Butter drip loop after entering */
+@keyframes butterDrip {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(4px); }
+}
+
+#butter1.butter-active {
+  animation:
+    butterSlide 0.5s cubic-bezier(0.22, 0.61, 0.36, 1) forwards,
+    butterDrip  1.8s ease-in-out 0.5s infinite;
+}
+
+/* Frozen: crystallise in + shimmer pulse */
+@keyframes frozenIn {
+  0%   { opacity: 0; filter: brightness(2.5) saturate(0.1); transform: scale(0.92); }
+  60%  { opacity: 1; filter: brightness(1.3) saturate(1.4); transform: scale(1.03); }
+  100% { opacity: 1; filter: brightness(1) saturate(1); transform: scale(1); }
+}
+
+@keyframes frozenShimmer {
+  0%, 100% { filter: brightness(1) saturate(1) hue-rotate(0deg); }
+  50%       { filter: brightness(1.18) saturate(1.25) hue-rotate(8deg); }
+}
+
+#frozen.frozen-active,
+#frozen1.frozen-active {
+  animation:
+    frozenIn      0.6s ease forwards,
+    frozenShimmer 2.4s ease-in-out 0.6s infinite;
+}
+
+/* Hammer: slam swing from top-right */
+@keyframes hammerSlam {
+  0%   { transform: rotate(-40deg) scale(1.15); transform-origin: 90% 5%; }
+  45%  { transform: rotate(8deg)  scale(1);    transform-origin: 90% 5%; }
+  70%  { transform: rotate(-6deg);             transform-origin: 90% 5%; }
+  88%  { transform: rotate(3deg);              transform-origin: 90% 5%; }
+  100% { transform: rotate(0deg) scale(1);     transform-origin: 90% 5%; }
+}
+
+#Hammer.hammer-slam {
+  animation: hammerSlam 0.38s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+/* ===== BASE LAYERING ===== */
+
+/* ===== BASE VISIBILITY SAFETY ===== */
+
+/* Base1 always visible by default */
+#base-image {
+  display: block;
+  z-index: 5 !important;
+}
+
+/* Base2 / 3 / 4 are ALWAYS hidden unless JS shows them */
+#base2-image,
+#base3-image,
+#base4-image {
+  display: none;              /* 🔑 IMPORTANT */
+  z-index: 12 !important;
+}
+
+/* Ensure base stacking */
+.base-container img[id^="base"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;       /* avoids ghost touches */
+}
