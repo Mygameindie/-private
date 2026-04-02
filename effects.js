@@ -3,7 +3,7 @@
 // To add a new effect, call _createPressHoldEffect() with a config object.
 
 function _createPressHoldEffect(config) {
-  const { btnId, imgId, imgSrc, imgAlt, sfxSrc, animClass, onPress } = config;
+  const { btnId, imgId, imgSrc, imgAlt, sfxSrc, animClass, onPress, zIndex } = config;
 
   let sfxEl = document.getElementById(imgId + 'Sfx');
   if (!sfxEl) {
@@ -23,7 +23,7 @@ function _createPressHoldEffect(config) {
       img.alt = imgAlt || imgId;
       img.style.position = 'absolute';
       img.style.pointerEvents = 'none';
-      img.style.zIndex = '999999';
+      img.style.zIndex = zIndex != null ? String(zIndex) : '999999';
       img.style.display = 'none';
       document.body.appendChild(img);
     }
@@ -99,11 +99,13 @@ _createPressHoldEffect({
 });
 
 // ===== WHIP =====
+// zIndex 4 = behind the base character (base-image is z-index 5)
 _createPressHoldEffect({
   btnId:     'toggleWhipBtn',
   imgId:     'WhipEffect',
   imgSrc:    'whip.png',
   imgAlt:    'whip effect',
   sfxSrc:    'whip.mp3',
-  animClass: 'whip-crack'
+  animClass: 'whip-crack',
+  zIndex:    4
 });
