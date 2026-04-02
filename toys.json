@@ -1,5 +1,9 @@
 [
-    { "id": "toy1", "src": "Toy1.png", "alt": "Weapon 1" },
-	{ "id": "toy2", "src": "Toy2.png", "alt": "Weapon 2" },
-    
+    { "id": "toy1", "src": "Toy1.png", "alt": "Toy 1" },
+    { "id": "toy2", "src": "Toy2.png", "alt": "Toy 2" },
+    { "id": "toy3", "src": "Toy3.png", "alt": "Butter" },
+    { "id": "toy4", "src": "Toy4.png", "alt": "Ice" },
+    { "id": "toy5", "src": "Toy5.png", "alt": "Plant" },
+    { "id": "toy6", "src": "Toy6.png", "alt": "Whip" },
+    { "id": "toy7", "src": "Toy7.png", "alt": "Hammer" }
 ]
