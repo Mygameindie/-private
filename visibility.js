@@ -43,12 +43,7 @@
       if (categoryName === 'dress') {
         // Wearing a dress: hide shirts, pants, skirts, sweatshirts, and underwear
         hideSpecificCategories(['top', 'pants', 'skirt', 'sweatshirt', 'topunderwear']);
-      } else if (
-        categoryName === 'top' || categoryName === 'top' ||
-        categoryName === 'pants' || categoryName === 'pants' ||
-        categoryName === 'skirt' || categoryName === 'skirt' ||
-        categoryName === 'sweatshirt'
-      ) {
+      } else if (['top', 'pants', 'skirt', 'sweatshirt'].includes(categoryName)) {
         // Wearing any top/pants/skirt/sweatshirt: hide dress
         hideSpecificCategories(['dress']);
       }

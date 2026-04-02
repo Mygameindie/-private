@@ -19,7 +19,7 @@
     'hat.json',
     'weapon.json',
     'mask.json',
-    'Waist.json',
+    'waist.json',
   ];
 
   // Load each JSON file (deduped: your original had this function twice)
