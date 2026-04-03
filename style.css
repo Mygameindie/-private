@@ -415,6 +415,17 @@ body {
 }
 /* ===== TOY SYSTEM ===== */
 
+/* Toy layer sits below base-image (z-index 5) so base always renders above toys */
+#toy-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+  pointer-events: none;
+}
+
 /* Override base-container img defaults for toy items */
 .toy-item {
   width: 80px !important;

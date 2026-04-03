@@ -9,12 +9,13 @@
 
 let _toyIdCounter = 0;
 let _toyTopZ = 1;
+let _toyLayer = null;
 // Tracks which toy+zone pairs are currently overlapping
 const _toyColliding = new Set();
 
 // ===== SPAWN TOY =====
 function spawnToy(src, alt) {
-  const stage = document.querySelector('.base-container');
+  const stage = _toyLayer || document.querySelector('.base-container');
   if (!stage) return;
 
   const toy = document.createElement('img');
@@ -150,6 +151,14 @@ function _makeToyDraggable(toy) {
 
 // ===== LOAD JSON & BUILD PANEL =====
 async function _initToys() {
+  // Create a dedicated layer for toys so they always render below #base-image (z-index 5)
+  const baseContainer = document.querySelector('.base-container');
+  if (baseContainer) {
+    _toyLayer = document.createElement('div');
+    _toyLayer.id = 'toy-layer';
+    baseContainer.appendChild(_toyLayer);
+  }
+
   // Fetch toys.json
   let toyData = [];
   try {
