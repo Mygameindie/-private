@@ -107,5 +107,14 @@ _createPressHoldEffect({
   imgAlt:    'whip effect',
   sfxSrc:    'whip.mp3',
   animClass: 'whip-crack',
-  zIndex:    4
+  zIndex:    4,
+  onPress: () => {
+    // Switch to face6 expression on whip hit
+    document.querySelectorAll('img.face, img[id^="face"]').forEach(f => {
+      f.style.visibility = 'hidden';
+    });
+    const f6 = document.getElementById('face6') ||
+               document.querySelector('img[src*="face6.png"]');
+    if (f6) f6.style.visibility = 'visible';
+  }
 });
