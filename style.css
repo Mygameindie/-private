@@ -439,20 +439,27 @@ body {
   z-index: 1;
   left: 0;
   top: 0;
+  /* Promote to a dedicated GPU compositor layer so dragging does not leave
+     paint trails / ghost smears behind the toy (the drop-shadow filter's
+     dirty region is otherwise not cleared correctly on fast movement). */
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .toy-item.toy-dragging {
   cursor: grabbing;
   filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.45));
-  transform: scale(1.12) rotate(3deg);
+  transform: translateZ(0) scale(1.12) rotate(3deg);
 }
 
 @keyframes toyBounce {
-  0%   { transform: scale(1) rotate(0deg); }
-  30%  { transform: scale(1.35) rotate(12deg); }
-  60%  { transform: scale(0.88) rotate(-6deg); }
-  80%  { transform: scale(1.08) rotate(3deg); }
-  100% { transform: scale(1) rotate(0deg); }
+  0%   { transform: translateZ(0) scale(1) rotate(0deg); }
+  30%  { transform: translateZ(0) scale(1.35) rotate(12deg); }
+  60%  { transform: translateZ(0) scale(0.88) rotate(-6deg); }
+  80%  { transform: translateZ(0) scale(1.08) rotate(3deg); }
+  100% { transform: translateZ(0) scale(1) rotate(0deg); }
 }
 
 .toy-item.toy-touched {
